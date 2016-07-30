@@ -93,7 +93,6 @@ module RedmineS3
         options[:content_type] = content_type if content_type
         options[:content_disposition] = "inline; filename=#{ERB::Util.url_encode(original_filename)}"
         options[:body] = data
-        puts data.class
         object.put(options)
       end
 
