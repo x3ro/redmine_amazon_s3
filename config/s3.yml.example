@@ -1,10 +1,9 @@
 production:
   access_key_id:
   secret_access_key:
+  region: 'ap-northeast-1'
   bucket:
   folder:
-  endpoint:
-  secure:
   private:
   expires:
   proxy:
@@ -13,10 +12,9 @@ production:
 development:
   access_key_id:
   secret_access_key:
+  region: 'ap-northeast-1'
   bucket:
   folder:
-  endpoint:
-  secure:
   private:
   expires:
   proxy:
