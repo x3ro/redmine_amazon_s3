@@ -1,11 +1,11 @@
 # S3 plugin for Redmine
 
 ## Description
-This [Redmine](http://www.redmine.org) plugin makes file attachments be stored on [Amazon S3](http://aws.amazon.com/s3) rather than on the local filesystem. This is a fork for [original gem](http://github.com/tigrish/redmine_s3) and difference is that this one supports Redmine 2
+This [Redmine](http://www.redmine.org) plugin makes file attachments be stored on [Amazon S3](http://aws.amazon.com/s3) rather than on the local filesystem. This is a fork for [original gem](http://github.com/tigrish/redmine_s3) and difference is that this one supports Redmine 3.3
 
 ## Installation
 1. Make sure Redmine is installed and cd into it's root directory
-2. `git clone git://github.com/ka8725/redmine_s3.git plugins/redmine_s3`
+2. `git clone git://github.com/tka/redmine_s3.git plugins/redmine_s3`
 3. `cp plugins/redmine_s3/config/s3.yml.example config/s3.yml`
 4. Edit config/s3.yml with your favourite editor
 5. `bundle install --without development test` for installing this plugin dependencies (if you already did it, doing a `bundle install` again whould do no harm)
@@ -37,6 +37,10 @@ This [Redmine](http://www.redmine.org) plugin makes file attachments be stored o
 * thumb_folder: string folder where attachment thumbnails are stored; defaults to 'tmp'
 * Defaults to private: false, secure: false, proxy: false, default endpoint, default port, default ssl and default expires
 
+## Fork From
+
+* https://github.com/tigrish/redmine_s3
+* https://github.com/ka8725/redmine_s3
 
 ## License
 
