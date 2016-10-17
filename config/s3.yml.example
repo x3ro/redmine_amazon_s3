@@ -1,27 +1,30 @@
 production:
+
+  # AWS access key (string, required)
   access_key_id:
+
+  # AWS secret key (string, required)
   secret_access_key:
-  region: 'ap-northeast-1'
+
+  # Bucket name (string, required)
   bucket:
-  folder:
-  private:
-  expires:
-  proxy:
-  thumb_folder:
+
+  # Identifier for the region in which the bucket was created (string, required)
+  region:
+
+  # Folder name inside bucket where files should be stored (e.g. 'attachments')
+  # folder: /
+
+  # Folder where attachment thumbnails are stored
+  # thumb_folder: tmp
+
+  # private: false
+  # expires: 900
+  # proxy: false
 
 development:
-  access_key_id:
-  secret_access_key:
-  region: 'ap-northeast-1'
-  bucket:
-  folder:
-  private:
-  expires:
-  proxy:
-  thumb_folder:
+  # Copy configuration from `production` if desired
 
-# Uncomment this to run plugin tests with standart redmine script
+# Uncomment this to run plugin tests with standard redmine script
 # test:
-#   access_key_id:
-#   secret_access_key:
-#   bucket:
+  # Copy configuration from `production` if desired
