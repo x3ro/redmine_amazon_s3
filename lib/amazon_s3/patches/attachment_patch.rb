@@ -23,7 +23,7 @@ module RedmineS3
           self.disk_directory = disk_directory || target_directory
           self.disk_filename  = Attachment.disk_filename(filename, disk_directory) if disk_filename.blank?
           logger.debug("Uploading to #{disk_filename}")
-          RedmineS3::Connection.put(disk_filename_s3, filename, @temp_file, self.content_type)
+          Connection.put(disk_filename_s3, filename, @temp_file, self.content_type)
           self.digest = Time.now.to_i.to_s
         end
         @temp_file = nil # so that the model's original after_save block skips writing to the fs
@@ -31,7 +31,7 @@ module RedmineS3
 
       def delete_from_s3
         logger.debug("Deleting #{disk_filename_s3}")
-        RedmineS3::Connection.delete(disk_filename_s3)
+        Connection.delete(disk_filename_s3)
       end
 
       # Prevent file uploading to the file system to avoid change file name
@@ -55,7 +55,7 @@ module RedmineS3
         target       = "#{id}_#{digest}_#{size}.thumb"
         update_thumb = options[:update_thumb] || false
         begin
-          RedmineS3::Thumbnail.get(self.disk_filename_s3, target, size, update_thumb)
+          Thumbnail.get(self.disk_filename_s3, target, size, update_thumb)
         rescue => e
           logger.error "An error occured while generating thumbnail for #{disk_filename_s3} to #{target}\nException was: #{e.message}" if logger
           return

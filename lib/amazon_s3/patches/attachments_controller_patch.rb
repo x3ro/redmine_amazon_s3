@@ -21,7 +21,7 @@ module RedmineS3
     module InstanceMethods
       def find_attachment_s3
         if @attachment.is_diff?
-          @diff = RedmineS3::Connection.get(@attachment.disk_filename_s3)
+          @diff = Connection.get(@attachment.disk_filename_s3)
           @diff_type = params[:type] || User.current.pref[:diff_type] || 'inline'
           @diff_type = 'inline' unless %w(inline sbs).include?(@diff_type)
           # Save diff type as user preference
@@ -31,7 +31,7 @@ module RedmineS3
           end
           render :action => 'diff'
         elsif @attachment.is_text? && @attachment.filesize <= Setting.file_max_size_displayed.to_i.kilobyte
-          @content = RedmineS3::Connection.get(@attachment.disk_filename_s3)
+          @content = Connection.get(@attachment.disk_filename_s3)
           render :action => 'file'
         else
           download_attachment_s3
@@ -42,7 +42,7 @@ module RedmineS3
         if @attachment.container.is_a?(Version) || @attachment.container.is_a?(Project)
           @attachment.increment_download
         end
-        redirect_to(RedmineS3::Connection.object_url(@attachment.disk_filename_s3))
+        redirect_to(Connection.object_url(@attachment.disk_filename_s3))
       end
 
       def find_editable_attachments_s3
