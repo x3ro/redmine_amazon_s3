@@ -11,6 +11,8 @@ branches:
 
 env:
   - REDMINE_VER=3.1-stable
+  - REDMINE_VER=3.2-stable
+  - REDMINE_VER=3.3-stable
   - REDMINE_VER=master
 
 ddons:
