@@ -18,7 +18,7 @@ The recommended setup for this plugin is to have a dedicated AWS user for the bu
 2. Clone the plugin
   * `git clone https://github.com/x3ro/redmine_amazon_s3 plugins/amazon_s3`
 3. Copy the default configuration into your Redmien setup
-  * `cp plugins/amazon_s3/config/s3.yml.example config/s3.yml`
+  * `cp plugins/amazon_s3/config/amazon_s3.example.yml config/amazon_s3.yml`
 5. Update your dependencies
   * `bundle install --without development test`
 6. Delete the `.git` directory of the plugin and commit it to your favorite version control system
@@ -33,7 +33,7 @@ To perform this step, you should have the following information from Amazon AWS:
 * Name of the target bucket
 * Region identifier where the bucket was created
 
-Now open the `config/s3.yml` file you've previously copied and fill in the blanks. Each option is explained in the configuration file itself, or [here](https://github.com/x3ro/redmine_amazon_s3/blob/master/config/s3.yml.example).
+Now open the `config/amazon_s3.yml` file you've previously copied and fill in the blanks. Each option is explained in the configuration file itself, or [here](https://github.com/x3ro/redmine_amazon_s3/blob/master/config/amazon_s3.example.yml).
 
 
 ## Optional: Migrating existing files to Amazon S3
