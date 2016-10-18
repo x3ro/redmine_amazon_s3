@@ -4,7 +4,7 @@ layout: default
 
 ## Prerequisite: Setting up Amazon S3
 
-The recommended setup for this plugin is to have a dedicated AWS user for the bucket where the Redmine data is going to be stored. How to create such a user is explained in [this guide]({% post_url 2016-10-17-aws-user-creation %}). After creating a user, you should check out the [guide on how to create the S3 bucket]({% post_url 2016-10-16-creating-and-configuring-the-amazon-s3-bucket %}).
+The recommended setup for this plugin is to have a dedicated AWS user for the bucket where the Redmine data is going to be stored. How to create such a user is explained in [this guide]({{ site.baseurl }}{% post_url 2016-10-17-aws-user-creation %}). After creating a user, you should check out the [guide on how to create the S3 bucket]({{ site.baseurl }}{% post_url 2016-10-16-creating-and-configuring-the-amazon-s3-bucket %}).
 
 
 ## Important security note
