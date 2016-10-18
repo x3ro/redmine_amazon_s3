@@ -1,16 +1,16 @@
 test:
 
   # AWS access key (required)
-  access_key_id:
+  access_key_id: <%= ENV["ACCESS_KEY_ID"] %>
 
   # AWS secret key (required)
-  secret_access_key:
+  secret_access_key: <%= ENV["SECRET_ACCESS_KEY"] %>
 
   # Bucket name (required)
-  bucket:
+  bucket: <%= ENV["BUCKET"] %>
 
   # Identifier for the region in which the bucket was created (required)
-  region:
+  region: <%= ENV["REGION"] %>
 
   # Folder name inside bucket where uploaded files should be stored (e.g. 'attachments')
   # The default behavior is to store data in the bucket's root directory
