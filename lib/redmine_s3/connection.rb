@@ -33,7 +33,6 @@ module RedmineS3
       def put(disk_filename, original_filename, data, content_type='application/octet-stream', target_folder = @@config.uploads_folder)
         object = self.object(disk_filename, target_folder)
         options = {}
-        #options[:acl] = "public-read" unless self.private?
         options[:content_type] = content_type if content_type
         options[:content_disposition] = "inline; filename=#{ERB::Util.url_encode(original_filename)}"
         options[:body] = data
@@ -47,13 +46,7 @@ module RedmineS3
 
       def object_url(filename, target_folder = @@config.uploads_folder)
         object = self.object(filename, target_folder)
-        if self.private?
-          options = {}
-          options[:expires_in] = self.expires_in unless self.expires_in.nil?
-          object.presigned_url(:get, options)
-        else
-          object.public_url
-        end
+        object.public_url
       end
 
       def get(filename, target_folder = @@config.uploads_folder)
