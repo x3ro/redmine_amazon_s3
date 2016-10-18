@@ -1,0 +1,18 @@
+test:
+  # AWS access key (string, required)
+  access_key_id: access_key_id value
+
+  # AWS secret key (string, required)
+  secret_access_key: secret_access_key value
+
+  # Bucket name (string, required)
+  bucket: bucket value
+
+  # Identifier for the region in which the bucket was created (string, required)
+  region: region value
+
+  # Folder name inside bucket where files should be stored (e.g. 'attachments')
+  uploads_folder: uploads_folder value
+
+  # Folder where attachment thumbnails are stored
+  thumbnails_folder: thumbnails_folder value
