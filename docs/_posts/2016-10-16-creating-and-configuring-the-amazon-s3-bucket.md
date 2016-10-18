@@ -46,7 +46,10 @@ A bucket policy contains a number of statements which allow or disallow certain 
             "Principal": {
                 "AWS": "<ARN of the user you created>"
             },
-            "Action": "s3:PutObject",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObject"
+            ],
             "Resource": "arn:aws:s3:::<name of the bucket you created>/*"
         },
         {
