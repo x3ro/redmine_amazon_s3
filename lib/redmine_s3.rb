@@ -8,4 +8,3 @@ require 'redmine_s3/connection'
 AttachmentsController.send(:include, RedmineS3::AttachmentsControllerPatch)
 Attachment.send(:include, RedmineS3::AttachmentPatch)
 ApplicationHelper.send(:include, RedmineS3::ApplicationHelperPatch)
-RedmineS3::Connection.create_bucket

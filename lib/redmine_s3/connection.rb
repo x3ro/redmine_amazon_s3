@@ -26,10 +26,6 @@ module RedmineS3
         resource.bucket(@@config.bucket)
       end
 
-      def create_bucket
-        bucket.create unless bucket.exists?
-      end
-
       def object(filename, target_folder = @@config.uploads_folder)
         bucket.object(target_folder + filename)
       end
