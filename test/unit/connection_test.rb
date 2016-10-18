@@ -16,7 +16,7 @@ class ConfigurationTest < ActiveSupport::TestCase
     filename = "foobar.rb"
     Connection.put(filename, __FILE__, body)
     assert Connection.object_url(filename).include? filename
-    assert_equal body, Connection.get(filename).read
+    assert_equal body, Connection.get(filename)
     Connection.delete(filename)
   end
 

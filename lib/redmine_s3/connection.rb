@@ -51,7 +51,7 @@ module RedmineS3
 
       def get(filename, target_folder = @@config.uploads_folder)
         object = self.object(filename, target_folder)
-        object.get.body
+        object.get.body.read
       end
     end
   end
