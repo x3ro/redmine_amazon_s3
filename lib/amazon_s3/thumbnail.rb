@@ -1,4 +1,4 @@
-module RedmineS3
+module AmazonS3
   class Thumbnail
 
     def self.get(source, target, size, update_thumb = false)

@@ -1,4 +1,4 @@
-module RedmineS3
+module AmazonS3
   module AttachmentPatch
     def self.included(base) # :nodoc:
       base.extend(ClassMethods)

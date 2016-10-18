@@ -1,4 +1,4 @@
-module RedmineS3
+module AmazonS3
   module ApplicationHelperPatch
     def self.included(base) # :nodoc:
       base.send(:include, InstanceMethods)

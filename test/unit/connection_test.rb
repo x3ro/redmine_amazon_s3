@@ -1,6 +1,6 @@
 require File.expand_path("../../test_helper", __FILE__)
 
-include RedmineS3
+include AmazonS3
 
 class ConfigurationTest < ActiveSupport::TestCase
 

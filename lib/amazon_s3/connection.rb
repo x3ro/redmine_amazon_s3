@@ -1,6 +1,6 @@
 require 'aws-sdk'
 
-module RedmineS3
+module AmazonS3
   class Connection
     @@client = nil
     @@config = Configuration.get

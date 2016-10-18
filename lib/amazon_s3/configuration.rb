@@ -1,4 +1,4 @@
-module RedmineS3
+module AmazonS3
   class ConfigurationError < StandardError; end
 
   class Configuration

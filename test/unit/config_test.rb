@@ -1,28 +1,30 @@
 require File.expand_path("../../test_helper", __FILE__)
 
+include AmazonS3
+
 class ConfigurationTest < ActiveSupport::TestCase
 
   setup do
-    @config = RedmineS3::Configuration.new
+    @config = Configuration.new
   end
 
   test "singleton" do
-    config = RedmineS3::Configuration.get
+    config = Configuration.get
     original_bucket = config.bucket
 
-    config = RedmineS3::Configuration.get
+    config = Configuration.get
     config.set({:bucket => "test123"})
     assert_equal "test123", config.bucket
 
-    config = RedmineS3::Configuration.get
+    config = Configuration.get
     assert_equal "test123", config.bucket
 
     config.set({:bucket => original_bucket})
   end
 
   test "configuration instances must not have shared state" do
-    config1 = RedmineS3::Configuration.new
-    config2 = RedmineS3::Configuration.new
+    config1 = Configuration.new
+    config2 = Configuration.new
     config1.set({:bucket => "config1"})
     config2.set({:bucket => "config2"})
 
@@ -31,7 +33,7 @@ class ConfigurationTest < ActiveSupport::TestCase
   end
 
   test "fail on unknown config option" do
-    assert_raises(RedmineS3::ConfigurationError) do
+    assert_raises(ConfigurationError) do
       @config.set({:foobar => "baz"})
     end
   end
