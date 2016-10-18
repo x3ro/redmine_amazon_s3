@@ -2,7 +2,7 @@ require File.expand_path("../../test_helper", __FILE__)
 
 include AmazonS3
 
-class ConfigurationTest < ActiveSupport::TestCase
+class ConnectionTest < ActiveSupport::TestCase
 
   test "basic aws functionality" do
     if Configuration.get.access_key_id.nil?
