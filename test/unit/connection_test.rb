@@ -9,9 +9,11 @@ class ConfigurationTest < ActiveSupport::TestCase
       skip "Skipping AWS tests because it is not configured for the test environment"
     end
 
+    # Use for debugging
+    # Aws.config[:http_wire_trace] = true
+
     body = "#{File.read(__FILE__)}#{Random.new_seed}"
     filename = "foobar.rb"
-    Connection.client
     Connection.put(filename, __FILE__, body)
     assert Connection.object_url(filename).include? filename
     assert_equal body, Connection.get(filename).read

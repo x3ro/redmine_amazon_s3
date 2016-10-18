@@ -8,11 +8,26 @@ class ConfigurationTest < ActiveSupport::TestCase
 
   test "singleton" do
     config = RedmineS3::Configuration.get
+    original_bucket = config.bucket
+
+    config = RedmineS3::Configuration.get
     config.set({:bucket => "test123"})
     assert_equal "test123", config.bucket
 
     config = RedmineS3::Configuration.get
     assert_equal "test123", config.bucket
+
+    config.set({:bucket => original_bucket})
+  end
+
+  test "configuration instances must not have shared state" do
+    config1 = RedmineS3::Configuration.new
+    config2 = RedmineS3::Configuration.new
+    config1.set({:bucket => "config1"})
+    config2.set({:bucket => "config2"})
+
+    assert_equal "config1", config1.bucket
+    assert_equal "config2", config2.bucket
   end
 
   test "fail on unknown config option" do
