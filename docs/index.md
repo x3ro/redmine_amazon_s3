@@ -49,3 +49,14 @@ TODO: Test
 * Files can use private signed urls using the private option
 * Private file urls can expire a set time after the links were generated using the expires option
 * If you're using a Amazon S3 clone, then you can do the download relay by using the proxy option.
+
+
+# Development
+
+## Running tests
+
+Run unit tests from the root of your redmine installation (the plugin must be installed and configured for this). 
+
+    bin/rake amazon_s3:test
+
+Note that, if you have the test environment configured in your `amazon_s3.yml` and run the test suite, you will incur a small amount of S3 charges.
