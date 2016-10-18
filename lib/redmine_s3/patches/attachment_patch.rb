@@ -41,6 +41,7 @@ module RedmineS3
       # if the thumbnail cannot be generated.
       def thumbnail_s3(options = {})
         return unless thumbnailable?
+
         size = options[:size].to_i
         if size > 0
           # Limit the number of thumbnails per image
@@ -54,7 +55,7 @@ module RedmineS3
         target       = "#{id}_#{digest}_#{size}.thumb"
         update_thumb = options[:update_thumb] || false
         begin
-          RedmineS3::ThumbnailPatch.generate_s3_thumb(self.disk_filename_s3, target, size, update_thumb)
+          RedmineS3::Thumbnail.get(self.disk_filename_s3, target, size, update_thumb)
         rescue => e
           logger.error "An error occured while generating thumbnail for #{disk_filename_s3} to #{target}\nException was: #{e.message}" if logger
           return
