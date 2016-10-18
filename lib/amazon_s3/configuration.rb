@@ -27,7 +27,7 @@ module AmazonS3
     end
 
     def default_config_path
-      File.join(Rails.root, 'config', 's3.yml')
+      File.join(Rails.root, 'config', 'amazon_s3.yml')
     end
 
     def load(path)
