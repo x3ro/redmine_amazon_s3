@@ -1,0 +1,33 @@
+
+language: ruby
+rvm:
+  - 2.3.1
+#  - 2.3
+
+branches:
+  only:
+    - master
+
+env:
+  - REDMINE_VER=3.1-stable
+#  - REDMINE_VER=master
+
+ddons:
+  postgresql: "9.4"
+
+install: "echo skip bundle install"
+
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+
+script:
+  - export TESTSPACE=`pwd`/testspace
+  - export NAME_OF_PLUGIN=amazon_s3
+  - export PATH_TO_PLUGIN=`pwd`
+  - export PATH_TO_REDMINE=$TESTSPACE/redmine
+  - mkdir $TESTSPACE
+  - cp test/travis/support/* $TESTSPACE/
+  - bash -x ./test/travis/run.sh
+
+
+

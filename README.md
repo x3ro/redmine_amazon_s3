@@ -1,4 +1,4 @@
-# `amazon_s3` for Redmine
+# `amazon_s3` for Redmine [![Build Status](https://travis-ci.org/x3ro/redmine_amazon_s3.svg?branch=master)](https://travis-ci.org/x3ro/redmine_amazon_s3)
 
 This [Redmine](http://www.redmine.org) plugin stores file attachments on [Amazon S3](http://aws.amazon.com/s3) instead of the local filesystem.
 
