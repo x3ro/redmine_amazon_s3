@@ -38,9 +38,8 @@ Now open the `config/amazon_s3.yml` file you've previously copied and fill in th
 
 ## Optional: Migrating existing files to Amazon S3
 
-Run `rake redmine_s3:files_to_s3` to upload files in your files folder to s3
+TODO: Write guide
 
-TODO: Test
 
 
 ## Options Overview
