@@ -7,9 +7,11 @@ layout: default
 The recommended setup for this plugin is to have a dedicated AWS user for the bucket where the Redmine data is going to be stored. How to create such a user is explained in [this guide]({{ site.baseurl }}{% post_url 2016-10-17-aws-user-creation %}). After creating a user, you should check out the [guide on how to create the S3 bucket]({{ site.baseurl }}{% post_url 2016-10-16-creating-and-configuring-the-amazon-s3-bucket %}).
 
 
+
 ## Important security note
 
 **After files are uploaded they are made public to anyone who knows the URL.**
+
 
 
 ## Installation of the Redmine plugin
@@ -25,6 +27,7 @@ The recommended setup for this plugin is to have a dedicated AWS user for the bu
   * `rm -Rf plugins/redmine_s3/.git`
 
 
+
 ## Configuration of the Redmine plugin
 
 To perform this step, you should have the following information from Amazon AWS:
@@ -34,6 +37,7 @@ To perform this step, you should have the following information from Amazon AWS:
 * Region identifier where the bucket was created
 
 Now open the `config/amazon_s3.yml` file you've previously copied and fill in the blanks. Each option is explained in the configuration file itself, or [here](https://github.com/x3ro/redmine_amazon_s3/blob/master/config/amazon_s3.example.yml).
+
 
 
 ## Optional: Migrating existing files to Amazon S3
@@ -48,6 +52,8 @@ TODO: Write guide
 * Files can use private signed urls using the private option
 * Private file urls can expire a set time after the links were generated using the expires option
 * If you're using a Amazon S3 clone, then you can do the download relay by using the proxy option.
+
+
 
 
 # Development
