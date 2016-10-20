@@ -4,7 +4,7 @@ layout: default
 
 ## Prerequisite: Setting up Amazon S3
 
-The recommended setup for this plugin is to have a dedicated AWS user for the bucket where the Redmine data is going to be stored. How to create such a user is explained in [this guide]({{ site.baseurl }}{% post_url 2016-10-17-aws-user-creation %}). After creating a user, you should check out the [guide on how to create the S3 bucket]({{ site.baseurl }}{% post_url 2016-10-16-creating-and-configuring-the-amazon-s3-bucket %}).
+The recommended setup for this plugin is to have a dedicated AWS user for the bucket where the Redmine data is going to be stored. How to create such a user is explained in [this guide]({{ site.baseurl }}{% post_url 2016-10-17-creating-an-aws-user %}). After creating a user, you should check out the [guide on how to create the S3 bucket]({{ site.baseurl }}{% post_url 2016-10-16-creating-and-configuring-the-amazon-s3-bucket %}).
 
 
 
@@ -39,13 +39,6 @@ To perform this step, you should have the following information from Amazon AWS:
 Now open the `config/amazon_s3.yml` file you've previously copied and fill in the blanks. Each option is explained in the configuration file itself, or [here](https://github.com/x3ro/redmine_amazon_s3/blob/master/config/amazon_s3.example.yml).
 
 
-
-## Optional: Migrating existing files to Amazon S3
-
-TODO: Write guide
-
-
-
 ## Options Overview
 
 * After files are uploaded they are made public, unless private is set to true.
@@ -65,3 +58,28 @@ Run unit tests from the root of your redmine installation (the plugin must be in
     bin/rake amazon_s3:test
 
 Note that, if you have the test environment configured in your `amazon_s3.yml` and run the test suite, you will incur a small amount of S3 charges.
+
+<br>
+<br>
+
+# List of documentation articles
+
+For completeness, here's a list of all documentation articles:
+
+<div class="home">
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
