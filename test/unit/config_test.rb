@@ -45,7 +45,7 @@ class ConfigurationTest < ActiveSupport::TestCase
     assert_equal "secret_access_key value", @config.secret_access_key
     assert_equal "bucket value", @config.bucket
     assert_equal "region value", @config.region
-    assert_equal "uploads_folder value/", @config.uploads_folder
+    assert_equal "attachments_folder value/", @config.attachments_folder
     assert_equal "thumbnails_folder value/", @config.thumbnails_folder
   end
 
@@ -73,17 +73,17 @@ class ConfigurationTest < ActiveSupport::TestCase
     assert_equal "eu-central-1", @config.region
   end
 
-  test "uploads_folder getter" do
-    assert_equal "", @config.uploads_folder
+  test "attachments_folder getter" do
+    assert_equal "", @config.attachments_folder
 
-    @config.set({:uploads_folder => nil})
-    assert_equal "", @config.uploads_folder
+    @config.set({:attachments_folder => nil})
+    assert_equal "", @config.attachments_folder
 
-    @config.set({:uploads_folder => "   "})
-    assert_equal "", @config.uploads_folder
+    @config.set({:attachments_folder => "   "})
+    assert_equal "", @config.attachments_folder
 
-    @config.set({:uploads_folder => "foobar"})
-    assert_equal "foobar/", @config.uploads_folder
+    @config.set({:attachments_folder => "foobar"})
+    assert_equal "foobar/", @config.attachments_folder
   end
 
   test "thumbnails_folder getter" do

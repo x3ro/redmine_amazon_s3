@@ -26,11 +26,11 @@ module AmazonS3
         resource.bucket(@@config.bucket)
       end
 
-      def object(filename, target_folder = @@config.uploads_folder)
+      def object(filename, target_folder = @@config.attachments_folder)
         bucket.object(target_folder + filename)
       end
 
-      def put(disk_filename, original_filename, data, content_type='application/octet-stream', target_folder = @@config.uploads_folder)
+      def put(disk_filename, original_filename, data, content_type='application/octet-stream', target_folder = @@config.attachments_folder)
         object = self.object(disk_filename, target_folder)
         options = {}
         options[:content_type] = content_type if content_type
@@ -39,17 +39,17 @@ module AmazonS3
         object.put(options)
       end
 
-      def delete(filename, target_folder = @@config.uploads_folder)
+      def delete(filename, target_folder = @@config.attachments_folder)
         object = self.object(filename, target_folder)
         object.delete
       end
 
-      def object_url(filename, target_folder = @@config.uploads_folder)
+      def object_url(filename, target_folder = @@config.attachments_folder)
         object = self.object(filename, target_folder)
         object.public_url
       end
 
-      def get(filename, target_folder = @@config.uploads_folder)
+      def get(filename, target_folder = @@config.attachments_folder)
         object = self.object(filename, target_folder)
         object.get.body.read
       end

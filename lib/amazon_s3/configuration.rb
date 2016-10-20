@@ -17,12 +17,12 @@ module AmazonS3
 
     def initialize
       @config = {
-        :access_key_id     => nil,
-        :secret_access_key => nil,
-        :bucket            => nil,
-        :region            => nil,
-        :uploads_folder    => nil,
-        :thumbnails_folder => nil,
+        :access_key_id      => nil,
+        :secret_access_key  => nil,
+        :bucket             => nil,
+        :region             => nil,
+        :attachments_folder => nil,
+        :thumbnails_folder  => nil,
       }
     end
 
@@ -66,8 +66,8 @@ module AmazonS3
       @config[:region]
     end
 
-    def uploads_folder
-      str = @config[:uploads_folder]
+    def attachments_folder
+      str = @config[:attachments_folder]
       if str.present?
         str.match(/\S+\//) ? str : "#{str}/"
       else

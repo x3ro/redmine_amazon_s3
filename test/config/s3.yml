@@ -12,7 +12,7 @@ test:
   region: region value
 
   # Folder name inside bucket where files should be stored (e.g. 'attachments')
-  uploads_folder: uploads_folder value
+  attachments_folder: attachments_folder value
 
   # Folder where attachment thumbnails are stored
   thumbnails_folder: thumbnails_folder value
