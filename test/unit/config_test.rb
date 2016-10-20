@@ -39,7 +39,7 @@ class ConfigurationTest < ActiveSupport::TestCase
   end
 
   test "load configuration from file" do
-    path = File.expand_path('../../../test/config/s3.yml', __FILE__)
+    path = File.expand_path('../../../test/fixtures/amazon_s3.yml', __FILE__)
     @config.load(path)
     assert_equal "access_key_id value", @config.access_key_id
     assert_equal "secret_access_key value", @config.secret_access_key
