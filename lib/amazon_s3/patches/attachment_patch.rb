@@ -1,5 +1,8 @@
 module AmazonS3
   module AttachmentPatch
+
+
+
     def self.included(base) # :nodoc:
       base.extend(ClassMethods)
       base.send(:include, InstanceMethods)
@@ -11,6 +14,16 @@ module AmazonS3
         after_validation :put_to_s3
         after_create      :generate_thumbnail_s3
         before_destroy   :delete_from_s3
+
+        def readable?
+          Connection.object(disk_filename_s3).exists?
+        end
+
+        def diskfile
+          Connection.object_url(disk_filename_s3)
+        end
+
+
       end
     end
 
@@ -71,6 +84,7 @@ module AmazonS3
       def generate_thumbnail_s3
         thumbnail_s3(update_thumb: true)
       end
+
     end
   end
 end
