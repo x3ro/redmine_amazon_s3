@@ -2,6 +2,6 @@
 class AmazonS3Hooks < Redmine::Hook::ViewListener
 
   def view_layouts_base_html_head(context = {})
-    javascript_include_tag 'redmine_s3.js', :plugin => 'redmine_s3'
+    javascript_include_tag 'redmine_s3.js', :plugin => 'amazon_s3'
   end
 end
